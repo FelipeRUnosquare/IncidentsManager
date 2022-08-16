@@ -3,6 +3,7 @@ import Spinner from "../../components/UI/Spinner";
 import IncList from "../../components/Incidents/IncidentList";
 import DataContext from "../../store/data-context";
 import CsvDownload from "react-json-to-csv";
+import SearchBar from "../../components/Layout/SearchBar";
 
 const Incidents = () => {
   const dataCtx = useContext(DataContext);
@@ -12,6 +13,7 @@ const Incidents = () => {
     content = (
       <React.Fragment>
         <h1>Last Incidents</h1>
+        <SearchBar />
         <IncList incData={dataCtx.allIncidents} />;
         <CsvDownload
           data={dataCtx.allIncidents}

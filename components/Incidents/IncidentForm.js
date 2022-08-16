@@ -16,6 +16,7 @@ const IncidentForm = ({ dataIncident }) => {
 
   const handleEditOrSaveIncident = (event) => {
     event.preventDefault();
+    console.log(department);
     const newData = {
       id: dataIncident.id || null,
       name,
@@ -57,11 +58,17 @@ const IncidentForm = ({ dataIncident }) => {
           value={description}
         />
         <label>Department: </label>
-        <input
+        <select
+          className={styles.select}
+          name="department"
+          id="department"
           onChange={(event) => setDepartment(event.target.value)}
-          type="text"
           value={department}
-        />
+        >
+          <option value="HR">HR</option>
+          <option value="Finance">Finance</option>
+          <option value="Legal">Legal</option>
+        </select>
         <div className={styles["inc-action"]}>
           <button onClick={handleEditOrSaveIncident}>
             {isNewIncident ? "Save" : "Edit"}
