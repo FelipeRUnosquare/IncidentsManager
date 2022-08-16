@@ -20,6 +20,8 @@ npm run dev
 yarn dev
 ```
 
+To Login, use any email, the app only validates if it is a valid email.
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Testing
