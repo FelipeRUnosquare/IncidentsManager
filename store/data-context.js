@@ -10,6 +10,7 @@ const DataContext = React.createContext({
   onDeleteIncident: () => {},
   onDownloadIncident: () => {},
   onSelectNullIncident: () => {},
+  onFilterByDepartment: () => {},
   isLoading: null,
   allIncidents: [],
   incData: [],

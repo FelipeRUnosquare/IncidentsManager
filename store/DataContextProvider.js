@@ -8,6 +8,7 @@ import MOCK_DATA from "../MOCK_DATA.json";
 const DataContextProvider = (props) => {
   const router = useRouter();
   const [allIncidents, setAllIncidents] = useState(MOCK_DATA);
+  const [filteredIncidents, setFilteredIncidents] = useState(allIncidents);
   const [isLoading, setIsLoading] = useState(false);
   const [incidentById, setIncidentById] = useState([]);
   const [isError, setIsError] = useState(false);
@@ -83,6 +84,18 @@ const DataContextProvider = (props) => {
     }
   };
 
+  const handleFilterByDepartment = (dep) => {
+    if (dep.trim() === "All") {
+      setFilteredIncidents(allIncidents);
+    } else if (dep.trim() !== "") {
+      setFilteredIncidents(() =>
+        allIncidents.filter((incident) => {
+          return incident.department === dep;
+        })
+      );
+    }
+  };
+
   return (
     <DataContext.Provider
       value={{
@@ -91,9 +104,10 @@ const DataContextProvider = (props) => {
         onAddIncident: handleAddIncident,
         onDeleteIncident: handleDeleteIncident,
         onSelectNullIncident: () => setIncidentById([]),
+        onFilterByDepartment: handleFilterByDepartment,
         onError: handleError,
         onLoading: (loading) => setIsLoading(loading),
-        allIncidents: allIncidents,
+        allIncidents: filteredIncidents,
         isLoading: isLoading,
         incidentById: incidentById,
       }}

@@ -1,6 +1,6 @@
 import { fireEvent, render, screen, waitFor } from "./test-utils";
 import userEvent from "@testing-library/user-event";
-import Incidents from "../pages/incidents/index";
+import Incidents from "../pages/home/index";
 
 jest.mock("next/router", () => require("next-router-mock"));
 
