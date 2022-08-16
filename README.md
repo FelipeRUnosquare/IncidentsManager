@@ -5,8 +5,12 @@ This Project allow users to view, create, edit, delete and download incidents
 ## Getting Started
 
 First, install al dependencies
+
+```bash
 npm install
+# or
 yarn
+```
 
 Then, run the development server:
 
@@ -22,4 +26,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 To test the application
 
+```bash
 npm run test
+```
