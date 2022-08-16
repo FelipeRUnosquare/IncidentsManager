@@ -4,24 +4,24 @@ import Login from "../pages/index";
 import "@testing-library/jest-dom";
 
 describe("Login Form", () => {
-  test.skip("User input button works", async () => {
+  test("User input button works", async () => {
     render(<Login />);
     const loginInput = screen.getByPlaceholderText("Username");
-    fireEvent.change(loginInput, { target: { value: "Sincere@april.biz" } });
-    expect(loginInput.value).toBe("Sincere@april.biz");
+    fireEvent.change(loginInput, { target: { value: "email@email.com" } });
+    expect(loginInput.value).toBe("email@email.com");
   });
 
   test.skip("Spinner appers after click button works", async () => {
     const { container } = render(<Login />);
     const loginInput = screen.getByPlaceholderText("Username");
-    fireEvent.change(loginInput, { target: { value: "Sincere@april.biz" } });
+    fireEvent.change(loginInput, { target: { value: "email@email.com" } });
     const okButton = screen.getByText("Login");
     userEvent.click(okButton);
     const spinner = container.getElementsByClassName("spinner");
     await waitFor(() => expect(spinner).toBeInTheDocument());
   });
 
-  test.skip("Form validation Works", async () => {
+  test("Form validation Works", async () => {
     render(<Login />);
     const loginInput = screen.getByPlaceholderText("Username");
     fireEvent.change(loginInput, { target: { value: "" } });

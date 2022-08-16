@@ -4,7 +4,7 @@ import IncList from "../../components/Incidents/IncidentList";
 import DataContext from "../../store/data-context";
 import CsvDownload from "react-json-to-csv";
 
-const UserId = () => {
+const Incidents = () => {
   const dataCtx = useContext(DataContext);
 
   let content = <Spinner />;
@@ -41,4 +41,4 @@ const UserId = () => {
   return <React.Fragment>{content}</React.Fragment>;
 };
 
-export default UserId;
+export default Incidents;

@@ -1,7 +1,5 @@
-import React, { useContext } from "react";
+import React from "react";
 import Menu from "../../components/Layout/Menu";
-import Spinner from "../../components/UI/Spinner";
-import DataContext from "../../store/data-context";
 
 const items = [
   {
@@ -17,10 +15,7 @@ const items = [
 ];
 
 const Home = () => {
-  const dataCtx = useContext(DataContext);
   let content = <Menu items={items} />;
-
-  if (dataCtx.isLoading) content = <Spinner />;
 
   return <React.Fragment>{content}</React.Fragment>;
 };
