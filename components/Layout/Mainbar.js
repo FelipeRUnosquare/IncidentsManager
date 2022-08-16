@@ -22,7 +22,7 @@ const Mainbar = () => {
       <h1 className={styles.title} onClick={handleClickGoHome}>
         Inc Manager
       </h1>
-      <SearchBar />
+      {/* <SearchBar /> */}
       <div
         className={buttonStyle}
         onClick={() => router.push("/incidents/null")}

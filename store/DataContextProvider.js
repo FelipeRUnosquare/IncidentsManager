@@ -37,7 +37,7 @@ const DataContextProvider = (props) => {
 
   const handleEditIncident = (newData) => {
     try {
-      setAllIncidents((prevIncidents) =>
+      setFilteredIncidents((prevIncidents) =>
         prevIncidents.map((incident) => {
           if (incident.id === parseInt(newData.id)) {
             return newData;
@@ -62,7 +62,7 @@ const DataContextProvider = (props) => {
       newData.id = newId;
       let newIncidents = allIncidents;
       newIncidents[`${allIncidents.length}`] = newData;
-      setAllIncidents(newIncidents);
+      setFilteredIncidents(newIncidents);
       setIncidentById([]);
       router.back();
     } catch (error) {
@@ -74,7 +74,7 @@ const DataContextProvider = (props) => {
   const handleDeleteIncident = (id) => {
     try {
       let newIncidents = allIncidents.filter((incident) => incident.id !== id);
-      setAllIncidents(newIncidents);
+      setFilteredIncidents(newIncidents);
       setModalMessage("Incident deleted successfully");
       setIncidentById([]);
       router.back();
@@ -118,7 +118,6 @@ const DataContextProvider = (props) => {
           error={isError}
           message={modalMessage}
           onCloseModal={handleCloseModal}
-          // onAcceptAction={handleDeleteIncident}
           warning={warning}
         />
       )}

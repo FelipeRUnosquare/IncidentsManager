@@ -4,14 +4,7 @@ import DataContext from "../../store/data-context";
 import IncidentForm from "../../components/Incidents/IncidentForm";
 
 const Incident = () => {
-  const router = useRouter();
-  const incidentId = router.query.incidentId;
   const dataCtx = useContext(DataContext);
-  useEffect(() => {
-    if (incidentId !== "null") {
-      dataCtx.onSelectNullIncident(null);
-    }
-  }, []);
   let content = (
     <IncidentForm
       dataIncident={
