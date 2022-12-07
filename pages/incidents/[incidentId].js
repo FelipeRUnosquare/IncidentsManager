@@ -1,10 +1,15 @@
-import { useRouter } from "next/dist/client/router";
 import React, { useContext, useEffect } from "react";
 import DataContext from "../../store/data-context";
 import IncidentForm from "../../components/Incidents/IncidentForm";
 
 const Incident = () => {
   const dataCtx = useContext(DataContext);
+  useEffect(() => {
+    return () => {
+      dataCtx.onSelectNullIncident();
+    };
+  }, []);
+
   let content = (
     <IncidentForm
       dataIncident={
