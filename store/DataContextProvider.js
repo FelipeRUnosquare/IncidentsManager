@@ -62,7 +62,12 @@ const DataContextProvider = (props) => {
       newData.id = newId;
       let newIncidents = allIncidents;
       newIncidents[`${allIncidents.length}`] = newData;
-      setFilteredIncidents(newIncidents);
+      // setFilteredIncidents(newIncidents);
+      setFilteredIncidents(
+        newIncidents.sort(function (a, b) {
+          return a.id > b.id ? -1 : 1;
+        })
+      );
       setIncidentById([]);
       router.back();
     } catch (error) {
