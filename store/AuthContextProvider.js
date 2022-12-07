@@ -15,10 +15,10 @@ const AuthContextProvider = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const logoutHandler = () => {
+  const logoutHandler = async () => {
     localStorage.removeItem("isLoggedIn");
     setIsLoggedIn(false);
-    router.push("/");
+    await router.push("/");
   };
 
   const loginHandler = async (username) => {

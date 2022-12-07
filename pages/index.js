@@ -1,34 +1,17 @@
-import React, { useContext } from "react";
-import LoginForm from "../components/Main/LoginForm";
-import Spinner from "../components/UI/Spinner";
+import { useRouter } from "next/router";
+import React, { useContext, useEffect } from "react";
 import AuthContext from "../store/auth-context";
-import DataContext from "../store/data-context";
-import styles from "../styles/index.module.sass";
 
 export default function Login() {
   const authCtx = useContext(AuthContext);
-  const dataCtx = useContext(DataContext);
-
-  const handleLogin = async (username) => {
-    dataCtx.onLoading(true);
-    const fetchLogin = await authCtx.onLogin(username);
-    if (fetchLogin) {
-      dataCtx.onError(fetchLogin.message);
-      return
+  const router = useRouter();
+  useEffect(() => {
+    if (authCtx.isLoggedIn) {
+      router.push("/home");
+    } else {
+      router.push("/login");
     }
-  };
+  }, []);
 
-  let content = <LoginForm onLogin={handleLogin} />;
-
-  if (dataCtx.isLoading) {
-    content = <Spinner />;
-  }
-
-  return (
-    <React.Fragment>
-      <div className={styles.container}>
-        <div className={styles["form-container"]}>{content}</div>
-      </div>
-    </React.Fragment>
-  );
+  return <React.Fragment></React.Fragment>;
 }
