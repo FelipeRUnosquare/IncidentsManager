@@ -13,8 +13,8 @@ const Incidents = () => {
     content = (
       <React.Fragment>
         <h1>Last Incidents</h1>
-        <SearchBar />
-        <IncList incData={dataCtx.allIncidents} />;
+        {/* <SearchBar /> */}
+        <IncList incData={dataCtx.allIncidents} />
         <CsvDownload
           data={dataCtx.allIncidents}
           style={{
