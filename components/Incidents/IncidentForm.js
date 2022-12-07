@@ -48,7 +48,7 @@ const IncidentForm = ({ dataIncident }) => {
         <label>Discovered: </label>
         <input
           onChange={(event) => setDiscovered(event.target.value)}
-          type="text"
+          type="date"
           value={discovered}
         />
         <label>Description: </label>
