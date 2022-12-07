@@ -6,11 +6,11 @@ import DataContextProvider from "../store/DataContextProvider";
 function MyApp({ Component, pageProps }) {
   return (
     <AuthContextProvider>
-      <DataContextProvider>
-        <Layout>
+      <Layout>
+        <DataContextProvider>
           <Component {...pageProps} />
-        </Layout>
-      </DataContextProvider>
+        </DataContextProvider>
+      </Layout>
     </AuthContextProvider>
   );
 }
