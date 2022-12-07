@@ -1,9 +1,11 @@
+import { useRouter } from "next/router";
 import React, { useContext, useState } from "react";
 import DataContext from "../../store/data-context";
 import styles from "./incidents.module.sass";
 
 const IncidentForm = ({ dataIncident }) => {
   const dataCtx = useContext(DataContext);
+  const router = useRouter();
   const [name, setName] = useState(dataIncident.name || "");
   const [discovered, setDiscovered] = useState(dataIncident.discovered || "");
   const [description, setDescription] = useState(
@@ -38,6 +40,10 @@ const IncidentForm = ({ dataIncident }) => {
 
   return (
     <React.Fragment>
+      <h2>Create or Edit incident</h2>
+      <button className={styles.button} onClick={() => router.push("/home")}>
+        Back
+      </button>
       <form className={styles.form}>
         <label>Name: </label>
         <input
