@@ -22,15 +22,19 @@ const Mainbar = () => {
       <h1 className={styles.title} onClick={handleClickGoHome}>
         Inc Manager
       </h1>
-      {/* <SearchBar /> */}
-      <div
-        className={buttonStyle}
-        onClick={() => router.push("/incidents/null")}
-      >
-        Add
+      <div className={styles.deskButton}>
+        <button onClick={() => router.push("/incidents/null")}>
+          Add Incident
+        </button>
+        <button onClick={handleLogout}>Logout</button>
       </div>
-      <div className={buttonStyle} onClick={handleLogout}>
-        logout
+      <div className={styles.mobileButtons}>
+        <button onClick={() => router.push("/incidents/null")}>
+          <i className="fa fa-plus"></i>
+        </button>
+        <button onClick={handleLogout}>
+          <i className="fa fa-sign-out"></i>
+        </button>
       </div>
     </nav>
   );

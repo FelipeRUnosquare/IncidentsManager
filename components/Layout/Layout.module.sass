@@ -109,3 +109,45 @@
     &:hover,
     &:active 
         font-size: 10%,
+
+.mobileButtons
+  display: none
+
+  button
+    background-color: rgba(221,221,218,0.8),
+    color: rgba(27,46,53,0.8),
+    font-size: 2rem,
+    margin-right: 2rem,
+    border-radius: 5px
+    border: $boder-default
+    cursor: pointer,
+  
+    &:hover,
+    &:active 
+      color: rgba(221,221,218,0.8),
+      background-color: rgba(27,46,53,0.2),
+
+  @include mobile()
+    display: contents
+
+.deskButton
+  margin-right: 2rem
+  display: flex
+
+  button
+    cursor: pointer
+    padding: 5%
+    color: rgba(221,221,218,0.8),
+    background-color: #4a707a,
+    font-weight: bold
+    font: $default-font
+    border: none
+    margin: 1rem,
+    border-radius: 5px
+
+    &:hover,
+    &:active
+      background-color: rgba(27,46,53,0.2),
+
+  @include mobile()
+    display: none
